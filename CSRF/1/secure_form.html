@@ -1,0 +1,14 @@
+<!--
+ Secure as random CSRF token created and associated with user session, and is
+ also hidden and sent in form along with request to be validated on server side
+-->
+<html>
+<body>
+    <form id="csrfForm" action="https://example.com/transfer" method="post">
+        <!-- CSRF Token -->
+        <input type="hidden" name="csrf_token" value="TOKEN_VALUE_FROM_SERVER">
+        <input type="hidden" name="amount" value="1000">
+        <input type="submit" value="Transfer Funds">
+    </form>
+</body>
+</html>
